@@ -68,6 +68,9 @@ Optimizing performance for large repositories is an ongoing task.
 📌 Future Improvements
 
 Complete webhook functionality for automatic indexing of new commits.
+
 Add support for multimodal RAG (e.g., image uploads).
+
 Implement simultaneous querying of multiple codebases.
+
 Enhance performance for large repositories.
