@@ -1,47 +1,42 @@
 # Codebase_RAG
 
-#Overview
+# Codebase RAG Chatbot 🚀
 
-This project is an AI-powered chatbot that enables users to interact with codebases using Retrieval-Augmented Generation (RAG). It leverages Pinecone for vector-based search and OpenAI's language models to provide meaningful insights about a codebase, making it easier for developers to navigate and understand complex projects.
+An AI-powered chatbot that enables users to interact with codebases using **Retrieval-Augmented Generation (RAG)**. This project combines the power of **Pinecone**, **OpenAI**, and **Streamlit** to simplify navigating and understanding complex codebases.
 
-#Features
+---
 
-Codebase Querying:
-Ask questions about the structure, functionality, or specific files in a codebase.
-Retrieve the most relevant code snippets to generate accurate, detailed answers.
-Multi-Codebase Support:
-Switch between different codebases using a dropdown menu.
-Dynamic Search:
-Uses Pinecone to store and search embeddings for fast and efficient retrieval.
-Streamlit Interface:
-A simple and user-friendly web app for querying and interacting with the chatbot.
-Webhook Setup Attempt:
-Explored automating the re-indexing process using GitHub webhooks to update the Pinecone database on new commits. Although not fully implemented, the foundation for this feature has been established.
+## 🌟 Features
+- **Chat with a Codebase**: Ask questions and get detailed, contextual responses about the codebase.
+- **Multiple Codebases**: Easily switch between different projects to query specific repositories.
+- **Dynamic Retrieval**: Uses Pinecone to fetch the most relevant parts of the codebase for accurate responses.
+- **Simple Interface**: A user-friendly Streamlit web app for seamless interactions.
+- **Future-Proof**: Attempts to implement GitHub webhooks for automatic updates to the Pinecone index.
 
+---
 
+## 🛠️ Technologies Used
+- **Streamlit**: For the web-based chatbot interface.
+- **OpenAI**: For generating AI-powered responses.
+- **Pinecone**: For storing and querying code embeddings.
+- **SentenceTransformers**: For embedding code files using `all-mpnet-base-v2`.
+- **Flask**: To handle GitHub webhook events.
 
-#Tech Stack
+---
 
-Python: Core programming language.
-Streamlit: Front-end for the chatbot interface.
-Pinecone: Vector database for embedding and retrieval.
-OpenAI: Large language models for response generation.
-Flask: Backend framework for webhook integration (attempted).
-How It Works
+## 🚀 How It Works
+1. **Codebase Embedding**:
+   - Supported file types (e.g., `.py`, `.js`, `.java`) are extracted and embedded using SentenceTransformers.
+   - These embeddings are stored in Pinecone for fast retrieval.
 
-Embedding the Codebase:
-The codebase is cloned locally, and supported files are processed to extract content.
-The extracted content is converted into embeddings using the sentence-transformers model and stored in Pinecone.
-Query Processing:
-A user inputs a question through the Streamlit app.
-The chatbot retrieves the most relevant context from Pinecone based on the query embedding.
-OpenAI’s language model generates a response based on the retrieved context.
-Multi-Codebase Support:
-Users can select a specific codebase to query.
-The app dynamically adjusts the namespace in Pinecone to fetch relevant data.
-Webhook Setup (Attempted):
-Explored automating updates to the Pinecone index using GitHub webhooks.
-Set up a webhook to listen for push events and trigger re-embedding of updated files.
+2. **Chatbot Interaction**:
+   - Users input questions in the web app.
+   - The app retrieves relevant code snippets from Pinecone and uses OpenAI to generate responses.
+
+3. **Dynamic Codebase Switching**:
+   - A dropdown menu allows users to query different repositories seamlessly.
+
+---
 
 #Challenges and Learnings
 
@@ -60,3 +55,11 @@ Multimodal RAG:
 Add support for image uploads to query image-related data in the codebase.
 Enhanced Multi-Codebase Queries:
 Allow querying across multiple codebases simultaneously.
+
+ Challenges Faced
+
+Webhook Implementation:
+Cloning and embedding new code updates worked, but re-indexing Pinecone for partial updates remains a challenge.
+Embedding Large Codebases:
+Optimizing performance for large repositories is an ongoing task.
+
